@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 dx = 10**-3
 dy = 10**-3
 dz = 1
-dt = 5*10**-7 #0.5微秒
+dt = 3*10**-7 #0.3微秒
 h=2*dx
 c0=2.51*10**3
 s=1.51
@@ -41,7 +41,7 @@ for ai in range(20):
             ux[ai][aj]=500
         else:
             ux[ai][aj]=0
-for ti in range(1):
+for ti in range(2):
 
     #对于某一时刻
     print("密度")
@@ -105,7 +105,7 @@ for ti in range(1):
                         dux = (density[ai][aj]*dx*dy*dz*((numpy.dot(ju_1,ju_2))/density[bi][bj]**2+numpy.dot(ju_3,ju_2)/density[ai][aj]**2))
                         duy = (density[ai][aj]*dx*dy*dz*((numpy.dot(ju_4,ju_2))/density[bi][bj]**2+numpy.dot(ju_5,ju_2)/density[ai][aj]**2))
                         de+=0.5*(numpy.dot(ju_6,[dux,duy]))
-            e[bi][bj]+=de
+            e[bi][bj]+=de/10**6
         print("进行了"+str(bi)+"行")
     #位置的变化
     for ai in range(20):
